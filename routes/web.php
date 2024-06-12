@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +29,5 @@ Route::post('/product', [ProductController::class, 'store'])->name('product.stor
 Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
 Route::put('/product/{product}/update', [ProductController::class, 'update'])->name('product.update');
 Route::delete('/product/{product}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
+
+Route::get('/adminpage', [HomeController::class, 'index']);
