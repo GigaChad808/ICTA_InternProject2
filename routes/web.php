@@ -30,4 +30,17 @@ Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name(
 Route::put('/product/{product}/update', [ProductController::class, 'update'])->name('product.update');
 Route::delete('/product/{product}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
 
-Route::get('/adminpage', [HomeController::class, 'index']);
+
+Route::get('/adminpage', [HomeController::class, 'index']);     
+
+Route::group(['middleware' => ['auth']],function (){
+
+    Route::group(['middleware' => ['admin']],function (){
+           
+    });
+
+    Route::group(['middleware' => ['user']],function (){
+
+        });
+    
+});
