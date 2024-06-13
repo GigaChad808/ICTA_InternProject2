@@ -24,28 +24,19 @@
       @endif
     </div>
     
-    <form method="post" action="{{route('product.update', ['product' => $product])}}">
+    <form method="post" action="{{route('phone.update', ['phone' => $phone])}}">
       @csrf
       @method('put')
       
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{$product->name}}">
+        <label for="model">Model</label>
+        <input type="text" class="form-control" id="model" name="model" placeholder="Model" value="{{$phone->model}}">
       </div>
       
-      <div class="form-group">
-        <label for="qty">Qty</label>
-        <input type="text" class="form-control" id="qty" name="qty" placeholder="Qty" value="{{$product->qty}}">
-      </div>
-      
-      <div class="form-group">
-        <label for="price">Price</label>
-        <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="{{$product->price}}">
-      </div>
-      
+
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="{{$product->description}}">
+        <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="{{$model->description}}">
       </div>
       
       <div>

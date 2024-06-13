@@ -15,7 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    <a href="{{ route('product.index') }}">product</a>
+                    <a href="{{ route('phone.index') }}">phone</a>
                 </div>
             </div>
         </div>

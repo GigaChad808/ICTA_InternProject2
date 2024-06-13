@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,15 +21,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
-Route::post('/product', [ProductController::class, 'store'])->name('product.store');
-Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
-Route::put('/product/{product}/update', [ProductController::class, 'update'])->name('product.update');
-Route::delete('/product/{product}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
 
 
 Route::get('/adminpage', [HomeController::class, 'index']);     
@@ -36,11 +30,20 @@ Route::get('/adminpage', [HomeController::class, 'index']);
 Route::group(['middleware' => ['auth']],function (){
 
     Route::group(['middleware' => ['admin']],function (){
-           
+
+        Route::get('/phone', [PhoneController::class, 'index'])->name('phone.indexAdmin');
+        Route::get('/phone/create', [PhoneController::class, 'create'])->name('phone.createAdmin');
+        Route::post('/phone', [PhoneController::class, 'store'])->name('phone.storeAdmin');
+        
     });
 
     Route::group(['middleware' => ['user']],function (){
 
+
+
+        Route::get('/phone/{phone}/edit', [PhoneController::class, 'edit'])->name('phone.edit');
+        Route::put('/phone/{phone}/update', [PhoneController::class, 'update'])->name('phone.update');
+        Route::delete('/phone/{phone}/destroy', [PhoneController::class, 'destroy'])->name('phone.destroy');
         });
     
 });

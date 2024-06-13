@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create a Product</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Edit a Product</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
   <div class="container mt-5">
-    <h1 class="mb-4">Create a Product</h1>
-
+    <h1 class="mb-4">Edit a Product</h1>
     <div>
       @if($errors->any())
         <div class="alert alert-danger">
@@ -23,28 +23,33 @@
         </div>
       @endif
     </div>
-
-    <form method="post" action="{{route('phone.store')}}">
+    
+    <form method="post" action="{{route('phone.update', ['phone' => $phone])}}">
       @csrf
-      @method('post')
+      @method('put')
       
       <div class="form-group">
         <label for="model">Model</label>
-        <input type="text" class="form-control" id="model" name="model" placeholder="Model">
+        <input type="text" class="form-control" id="model" name="model" placeholder="Model" value="{{$phone->model}}">
       </div>
-
+      
+      <div class="form-group">
+        <label for="qty">Qty</label>
+        <input type="text" class="form-control" id="qty" name="qty" placeholder="Qty" value="{{$phone->qty}}">
+      </div>
+      
       <div class="form-group">
         <label for="price">Price</label>
-        <input type="text" class="form-control" id="price" name="price" placeholder="Price">
+        <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="{{$phone->price}}">
       </div>
-
+      
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+        <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="{{$phone->description}}">
       </div>
       
       <div>
-        <button type="submit" class="btn btn-primary">Save a New Product</button>
+        <button type="submit" class="btn btn-primary">Update</button>
       </div>
     </form>
   </div>

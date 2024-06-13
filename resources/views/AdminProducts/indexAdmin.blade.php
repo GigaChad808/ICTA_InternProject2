@@ -21,14 +21,13 @@
     </div>
     
     <div class="mb-3">
-      <a href="{{route('product.create')}}" class="btn btn-primary">Create A Product</a>
+      <a href="{{route('phone.create')}}" class="btn btn-primary">Create A Product</a>
     </div>
     <table class="table table-bordered"> 
       <thead class="thead-dark">
         <tr>
           <th>ID</th>
-          <th>Name</th>
-          <th>Qty</th>
+          <th>Model</th>
           <th>Price</th>
           <th>Description</th>
           <th>Edit</th>
