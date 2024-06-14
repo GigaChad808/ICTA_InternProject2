@@ -17,8 +17,8 @@ class User
      */
     public function handle($request, Closure $next)
     {    
-        $route = auth()->user()->UserType;
-        if(auth()->user()->UserType == 'user'){
+        $route = auth()->user()->usertype;
+        if(auth()->user()->usertype == 'user'){
             return $next($request);
         }
         return redirect()->route($route);

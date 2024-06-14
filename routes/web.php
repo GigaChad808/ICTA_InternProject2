@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth']],function (){
 
         
         Route::get('/phone_user',[ PhoneController::class,'index'])->name('user_phone');
-        Route::get('/car',[ PhoneController::class,'index'])->name('phone.index');
+        Route::get('/phone',[ PhoneController::class,'index'])->name('phone.index');
         Route::get('/phones/create',[PhoneController::class,'create'])->name('phone.create');
 
         Route::post('/phone2',[PhoneController::class,'store'])->name('phone.store');
