@@ -20,13 +20,14 @@ class PhoneController extends Controller
     public function store(Request $request){
         $data = $request->validate([
             'model' => 'required',
-            'price' => 'required|decimal:0,2',
+            'price' => 'required|numeric',
             'description' => 'nullable',
         ]);
 
         $newPhone = Phone::create($data);
         
-        return redirect(route('phone.index'));
+        return redirect()->route('phone.index');
+        // return redirect(route('phone.index'));
     }
 
     public function edit(Phone $phone){
@@ -36,7 +37,7 @@ class PhoneController extends Controller
     public function update(Phone $phone, Request $request){
         $data = $request->validate([
             'model' => 'required',
-            'price' => 'required|decimal:0,2',
+            'price' => 'required|numeric',
             'description' => 'nullable',
         ]);
 
