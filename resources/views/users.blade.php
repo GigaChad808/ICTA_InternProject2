@@ -55,7 +55,7 @@
                 <div class="col-12">
                     <h2 class="text-center">Registered Users</h2>
 
-                    <a class="btn btn-secondary" href="{{route('adminpage')}}" role="button">Go Back</a>
+                    <a class="btn btn-secondary" href="{{route('adminmain')}}" role="button">Go Back</a>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
