@@ -32,9 +32,9 @@
     </div>
     <div>
         <div>
-            <!-- <a href="">Create a Product</a> -->
 
-            <a class="btn btn-primary" href="{{route('product.create.admin')}}" role="button">Create &nbsp <i class="fa-solid fa-plus"></i></a>
+
+            <a class="btn btn-primary" href="{{route('phone.create.admin')}}" role="button">Create &nbsp <i class="fa-solid fa-plus"></i></a>
             <a class="btn btn-secondary" href="{{route('adminmain')}}" role="button">Go Back</a>
 
         </div>
@@ -45,39 +45,27 @@
                 <th>Model</th>
                 <th>Price</th>
                 <th>Description</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>Operations</th>
 
             </tr>
             @foreach($phones as $phone )
                 <tr>
                     
-                    <td>{{$phone->name}}</td>
                     <td>{{$phone->model}}</td>
                     <td>{{$phone->price}}</td>
-
-                     <td>
-
-                     <!-- <a href="{{route('product.edit',['car' => $car])}}">Edit</a> -->
-
-                     
-
-                     <a class="btn btn-info" href="{{route('phone.edit.admin',['phone' => $phone])}}" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
-
-                     </td>
-
-
-
-                     <td>
-                        <form method="post" action="{{route('phone.delete.admin', ['phone' => $phone])}}">
-                            @csrf 
-                            @method('delete')
-                         
-
-                            <input class="btn btn-danger" type="submit" value="Delete">
-                        </form>
+                    <td>{{$phone->description}}</td>
+                    <td>
+                        <div class="d-flex">
+                            <a class="btn btn-info me-2" href="{{route('phone.edit.admin', ['phone' => $phone])}}" role="button">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <form method="post" action="{{route('phone.delete.admin', ['phone' => $phone])}}">
+                                @csrf 
+                                @method('delete')
+                                <input class="btn btn-danger" type="submit" value="Delete">
+                            </form>
+                        </div>
                     </td>
-
 
                 </tr>
             @endforeach

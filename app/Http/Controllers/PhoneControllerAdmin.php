@@ -14,7 +14,7 @@ class PhoneControllerAdmin extends Controller
 public function index_admin(){
 
     $phones= Phone::all();
-    return view('phone_admin.index',['phones'=>$phones]);
+    return view('phones_admin.index',['phones'=>$phones]);
 
 }
 

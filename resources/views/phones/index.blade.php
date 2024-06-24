@@ -34,7 +34,7 @@
         <div>
             <!-- <a href="">Create a Product</a> -->
 
-            <a class="btn btn-primary" href="{{route('product.create')}}" role="button">Create &nbsp <i class="fa-solid fa-plus"></i></a>
+            <a class="btn btn-primary" href="{{route('phone.create')}}" role="button">Create Phone <i class="fa-solid fa-plus"></i></a>
             <a class="btn btn-secondary" href="{{route('user')}}" role="button">Go Back</a>
 
         </div>
@@ -55,11 +55,6 @@
                     <td>{{$phone->description}}</td>
 
                      <td>
-
-                     <!-- <a href="{{route('product.edit',['car' => $car])}}">Edit</a> -->
-
-                     
-
                     
 
                 </tr>

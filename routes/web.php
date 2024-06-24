@@ -45,8 +45,8 @@ Route::group(['middleware' => ['auth']],function (){
       
         Route::get('/phone_admin',[ PhoneControllerAdmin::class,'index_admin'])->name('admin');
         Route::get('/phones/create_admin',[PhoneControllerAdmin::class,'create_admin'])->name('phone.create.admin');
-
-        //why phone2? 
+        Route::post('/phones/create_admin',[PhoneControllerAdmin::class,'create_admin'])->name('phone.create.admin');
+    
         Route::post('/phone2_admin',[PhoneControllerAdmin::class,'store_admin'])->name('product.store.admin');
         
         Route::get('/phone/{phone}/edit_admin',[PhoneControllerAdmin::class,'edit_admin'])->name('phone.edit.admin');
