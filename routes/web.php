@@ -25,6 +25,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+ Route::get('send', [HomeController::class, "sendnotification"]);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
@@ -54,6 +55,7 @@ Route::group(['middleware' => ['auth']],function (){
         Route::delete('/phone/{phone}/destroy_admin',[PhoneControllerAdmin::class,'destroy_admin'])->name('phone.delete.admin');
 
         Route::get('/adminpage/users', [AdminController::class, 'showUsers'])->name('admin.users');
+        // Route::get('/adminpage/email', [AdminController::class, 'sendEmail'])->name('admin.email');
         
     });
 
@@ -82,7 +84,8 @@ Route::group(['middleware' => ['auth']],function (){
         Route::get('/phone/{phone}/edit',[PhoneController::class,'edit'])->name('phone.edit');
         Route::put('/phone/{phone}/update',[PhoneController::class,'update'])->name('phone.update');
         Route::delete('/phone/{phone}/delete',[PhoneController::class,'delete'])->name('phone.delete');
-    
+   
+        Route::get('send', [HomeController::class, "sendnotification"]);
 
     });
 

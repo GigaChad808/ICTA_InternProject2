@@ -42,6 +42,8 @@
         <h4 class="text-center">Admin Panel</h4>
         <a href="{{ route('admin') }}">Products</a>
         <a href="{{ route('admin.users') }}">Users</a>
+        <a href="{{ route('admin.email') }}">Email</a>
+
         <form action="{{ route('logout') }}" method="post" class="mt-3">
             @csrf
             <button type="submit" class="btn btn-outline-light btn-block">Logout</button>
