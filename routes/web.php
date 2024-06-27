@@ -8,16 +8,6 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('auth.login');
@@ -29,7 +19,6 @@ Auth::routes();
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::get('/adminpage', [HomeController::class, 'index']);     
@@ -55,7 +44,7 @@ Route::group(['middleware' => ['auth']],function (){
         Route::delete('/phone/{phone}/destroy_admin',[PhoneControllerAdmin::class,'destroy_admin'])->name('phone.delete.admin');
 
         Route::get('/adminpage/users', [AdminController::class, 'showUsers'])->name('admin.users');
-        // Route::get('/adminpage/email', [AdminController::class, 'sendEmail'])->name('admin.email');
+
         
     });
 
@@ -64,11 +53,6 @@ Route::group(['middleware' => ['auth']],function (){
     Route::group(['middleware' => ['user']],function (){
 
 
-
-        // Route::get('/phone/{phone}/edit', [PhoneController::class, 'edit'])->name('phone.edit');
-        // Route::put('/phone/{phone}/update', [PhoneController::class, 'update'])->name('phone.update');
-        // Route::delete('/phone/{phone}/destroy', [PhoneController::class, 'destroy'])->name('phone.destroy');
-        // });
 
 
          
@@ -85,7 +69,7 @@ Route::group(['middleware' => ['auth']],function (){
         Route::put('/phone/{phone}/update',[PhoneController::class,'update'])->name('phone.update');
         Route::delete('/phone/{phone}/delete',[PhoneController::class,'delete'])->name('phone.delete');
    
-        Route::get('send', [HomeController::class, "sendnotification"]);
+        Route::post('send', [HomeController::class, "sendnotification"]);
 
     });
 

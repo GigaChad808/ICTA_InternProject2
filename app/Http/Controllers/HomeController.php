@@ -13,20 +13,20 @@ use App\Notifications\SendEmailNotification;
 class HomeController extends Controller
 {
 
-    public function sendnotification()
+    public function sendnotification(Request $request)
     {
         $user=User::all();
 
         $details=[
-            'greeting'=>'Hi laravel Developer',
+            'greeting'=>$request->greeting,
 
-            'body'=>'This is the email body',
+            'body'=>$request->body,
 
-            'actiontext'=>'Subscribe this channel',
+            'actiontext'=>$request->actiontext,
 
-            'actionurl'=>'/',
+            'actionurl'=>$request->url,
 
-            'lastline'=>'This is the last line',
+            'lastline'=>$request->lastline,
         ];
 
         Notification::send($user, new SendEmailNotification($details));

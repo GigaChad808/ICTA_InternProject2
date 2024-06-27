@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Page</title>
+    
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -21,6 +22,47 @@
                 <div class="text-center mt-4">
                     <a href="{{ route('user_phone') }}" class="btn btn-outline-primary">Go to Table</a>
                 </div>
+
+
+                <form action="{{url('send')}}" method="POST">
+
+                    @csrf
+
+
+                    <div>
+                        <label>Greeting</label>
+                        <input class="form-control" type="text" name="greeting">
+
+                    </div>
+
+                    <div>
+                        <label>Body</label>
+                        <input class="form-control" type="text" name="body">
+                    </div>
+                    
+                    <div>
+                        <label>Action Text</label>
+                        <input class="form-control" type="text" name="actiontext">
+                    </div>  
+                    
+                    <div>
+                        <label>Url</label>
+                        <input class="form-control" type="text" name="url">
+                    </div>  
+                    
+                    <div>
+                        <label>Last Line</label>
+                        <input class="form-control" type="text" name="lastline">
+                        <label></label>
+                    </div>  
+
+                    
+                    <div>
+                        
+                        <input type="submit" class="btn btn-success" >
+                    </div>  
+
+                </form>
             </div>
         </div>
     </div>
